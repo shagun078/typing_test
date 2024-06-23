@@ -2,7 +2,15 @@ import { createGlobalStyle } from "styled-components";
 
 
 export const GlobalStyles = createGlobalStyle`
-
+@font-face {
+    font-family: "Fugaz One";
+    src: url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.eot");
+    src: url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/6bb72788de0e0eb09756d36c0ba629cf.svg#Fugaz One")format("svg");
+}
 *{
     box-sizing: border-box;
 }
@@ -14,12 +22,14 @@ body{
     margin:0;
     transition: all 0.25s linear;
     overflow-y: scroll;
+   
 }
 
 body::-webkit-scrollbar{
     display: none;
 }
-
+.logo-title{
+font-family:'Fugaz One';}
 .canvas{
     display: grid;
     min-height: 100vh;
@@ -144,7 +154,7 @@ body::-webkit-scrollbar{
     border:none;
      font-size: 20px;
      padding :5px;
-  
+  cursor: pointer;
 }
 
 a{
@@ -184,6 +194,10 @@ a{
     justify-content: space-between;
 }
 .counter{
+  border: 1px solid;
+  padding:5px;
+  border-radius: 4px;
+    font-size:30px;
     margin-top : 2px;
     color:white;
 }

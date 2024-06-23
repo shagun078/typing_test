@@ -20,7 +20,7 @@ const Footer = () => {
 
       <div className="intructions">
         <div className="hint">
-          press <kbd>TAB</kbd> to open commands
+          Press <kbd>TAB</kbd> to open commands
         </div>
       </div>
 
