@@ -77,7 +77,6 @@ const Stats = ({wpm, resetTest, accuracy, correctChars, incorrectChars, missedCh
             <div className="title">Characters</div>
             <div className="subtitle">{correctChars}/{incorrectChars}/{missedChars}/{extraChars}</div>
             <button className='subtitle subtitle2' onClick={resetTest}>Restart</button>
-
         </div>
         <div className="right-stats">
             {/* graph comp will go here */}

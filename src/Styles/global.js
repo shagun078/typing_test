@@ -133,8 +133,18 @@ body::-webkit-scrollbar{
 }
 
 .subtitle{
-    font-size: 30px;
+     margin-top:5px;
+    font-size: 25px;
     color: ${({theme})=>theme.title};
+}
+    .subtitle2{
+    color: ${({theme})=>theme.background};
+    margin-top:15px;
+    border-radius: 5px;
+    border:none;
+     font-size: 20px;
+     padding :5px;
+  
 }
 
 a{
