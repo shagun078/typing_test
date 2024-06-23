@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { styled } from "@mui/system";
 import { Button, Modal, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useTheme } from '../Context/ThemeContext'
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAlert } from '../Context/AlertContext'
 import { auth, db } from '../firebaseConfig'
 
-const useStyles = makeStyles(() => ({
+const useStyles = styled(() => ({
     modal: {
         display: 'flex',
         alignItems: 'center',

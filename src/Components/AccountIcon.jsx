@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Alert, AppBar, Box, Modal, Tab, Tabs } from '@mui/material';
-import { makeStyles } from '@material-ui/core';
+import { styled } from "@mui/system";
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import GoogleButton from 'react-google-button';
@@ -12,7 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from '../Context/AlertContext';
 import { useTheme } from '../Context/ThemeContext';
-const useStyles = makeStyles(()=>({
+const useStyles = styled(()=>({
     modal: {
         display: 'flex',
         alignItems: 'center',

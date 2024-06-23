@@ -163,6 +163,7 @@ a{
     cursor: pointer;
 }
 
+
 .header{
     display: flex;
     width: 1000px;
@@ -172,7 +173,10 @@ a{
     height: 80px;
     justify-content: space-between;
 }
-
+.counter{
+    margin-top : 2px;
+    color:white;
+}
 .github-button{
     width: 400px;
     text-align: center;
@@ -241,13 +245,33 @@ a{
     align-items: start;
 }
 
-.compare-btn{
+.compare-btn {
     cursor: pointer;
-    color: ${({theme})=>theme.background};
-    background: ${({theme})=>theme.title};
-    padding: 0.3rem;
-    border-radius: 5px;
+    color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.title};
+    padding: 0.4rem 0.8rem;        /* Increase padding for better touch area */
+    border: none;                /* Remove default border */
+    border-radius: 8px;         /* Slightly more rounded corners for modern look */
     margin-top: -5px;
+    font-size: 1.1rem;           /* Adjust font size for better readability */
+    font-weight: bold;         /* Make text bold for better visibility */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+.compare-btn:hover {
+    background-color: ${({ theme }) => theme.hover}; /* Lighter or darker shade for hover effect */
+    transform: translateY(-2px); /* Slightly lift the button on hover */
+}
+
+.compare-btn:active {
+    background-color: ${({ theme }) => theme.active}; /* Even lighter or darker shade for active state */
+    transform: translateY(0); /* Reset lift effect on click */
+}
+
+.compare-btn:focus {
+    outline: 2px solid ${({ theme }) => theme.focus}; /* Highlight button on focus for accessibility */
+    outline-offset: 2px;
 }
 
 .instruction{
@@ -263,17 +287,27 @@ a{
     }
 }
 
-.active{
-    border: 1px solid;
-    padding: 3px;
-    margin: 4px;
+.active {
+    border: 1px solid ${({ theme }) => theme.border};
+    padding: 0.25rem 0.5rem; /* Adjusted padding for better spacing */
+    margin: 0.25rem; /* Adjusted margin for consistent spacing */
+    border-radius: 4px; /* Add border radius for smoother edges */
+    background-color: ${({ theme }) => theme.activeBackground}; /* Add background color for visual emphasis */
+    color: ${({ theme }) => theme.activeText}; /* Ensure text color is readable */
+    font-weight: bold; /* Make text bold for emphasis */
+    display: inline-block; /* Ensure consistent block styling */
 }
 
-.active-value{
-    border: 1px solid;
-    padding: 3px;
-    margin: 4px;
-    margin-top: -4px;
+.active-value {
+    border: 1px solid ${({ theme }) => theme.border};
+    padding: 0.25rem 0.5rem; /* Adjusted padding for better spacing */
+    margin: 0.25rem; /* Adjusted margin for consistent spacing */
+    margin-top: -0.25rem; /* Slightly negative margin for better alignment */
+    border-radius: 4px; /* Add border radius for smoother edges */
+    background-color: ${({ theme }) => theme.activeValueBackground}; /* Add background color for visual emphasis */
+    color: ${({ theme }) => theme.activeValueText}; /* Ensure text color is readable */
+    font-weight: bold; /* Make text bold for emphasis */
+    display: inline-block; /* Ensure consistent block styling */
 }
 
 .logo-image{

@@ -5,7 +5,8 @@ import ResultTable from '../Components/ResultTable';
 import Graph from '../Components/Graph';
 import UserInfo from '../Components/UserInfo';
 import { useTheme } from '../Context/ThemeContext';
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress } from '@mui/material';
+
 
 const UserPage = () => {
 
