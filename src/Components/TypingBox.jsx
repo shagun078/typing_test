@@ -300,17 +300,21 @@ const TypingBox = () => {
     startTimer();
   };
 
-  const resetWordSpanRefClassname = () => {
-    wordSpanRef.map((i) => {
-      Array.from(i.current.childNodes).map((j) => {
-        if (j.className.includes("extra")) {
-          j.remove();
-        }
-        j.className = "char";
-      });
+ const resetWordSpanRefClassname = () => {
+  wordSpanRef.forEach((i) => {
+    if (!i?.current) return; // ✅ skip if ref not yet attached
+    Array.from(i.current.childNodes).forEach((j) => {
+      if (j.className.includes("extra")) {
+        j.remove();
+      }
+      j.className = "char";
     });
+  });
+
+  if (wordSpanRef[0]?.current?.childNodes[0]) {
     wordSpanRef[0].current.childNodes[0].className = "char current";
-  };
+  }
+};
 
   const calculateWPM = () => {
     return Math.round(
