@@ -71,26 +71,34 @@ const AccountIcon = () => {
     }
 
     const googleProvider = new GoogleAuthProvider();
-    const signInWithGoogle = ()=>{
-        signInWithPopup(auth,googleProvider).then(async(response)=>{
-            const username = response.user.email;
-            const ref= await db.collection('usernames').doc(username).set({
-                uid: response.user.uid
-            });
-            setAlert({
-                open: true,
-                type: 'success',
-                message: 'login successful'
-            });
-            handleClose();
-        }).catch((err)=>{
-            setAlert({
-                open: true,
-                type: 'error',
-                message: 'google auth is not working'
-            });
-        });
-    }
+
+const signInWithGoogle = async () => {
+  try {
+    const response = await signInWithPopup(auth, googleProvider);
+    const user = response.user;
+    await db.collection("usernames").doc(user.uid).set({
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+    });
+
+    setAlert({
+      open: true,
+      type: "success",
+      message: "Login successful",
+    });
+
+    handleClose();
+  } catch (err) {
+    console.error("Google Auth Error:", err);
+    setAlert({
+      open: true,
+      type: "error",
+      message: "Google authentication failed",
+    });
+  }
+};
+
 
     const githubProvider = new GithubAuthProvider();
     const signInWithGithub = ()=>{
@@ -143,13 +151,35 @@ const AccountIcon = () => {
                 {value===0 && <LoginForm handleClose={handleClose}/>}
                 {value===1 && <SignupForm handleClose={handleClose}/>}
 
-                <Box>
-                    <span>OR</span>
-                    <GoogleButton
-                        style={{width:'100%',marginTop:'8px'}}
-                        onClick={signInWithGoogle}
-                    />
-                </Box>
+                <Box
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    mt: 2,   // margin top
+    gap: 1   // spacing between OR and button
+  }}
+>
+  <span
+    style={{
+      fontWeight: 500,
+      color: theme.title,
+      marginBottom: "8px"
+    }}
+  >
+    OR
+  </span>
+
+  <GoogleButton
+    style={{
+      width: "250px",
+      margin: "0 auto",
+      display: "block"
+    }}
+    onClick={signInWithGoogle}
+  />
+</Box>
+
                 {/* <Box>
                     <span>OR</span>
                     <div className='github-button' onClick={signInWithGithub}>
