@@ -49,7 +49,7 @@ const UserPage = () => {
 
     if(loading || dataLoading){
         return (<div className='center-of-screen'>
-                    <CircularProgress size={300} color={theme.title}/>
+                    <CircularProgress size={300} color="primary" />
              </div>);
     }
     
