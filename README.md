@@ -4,6 +4,7 @@
 MasterType is a typing speed test web app to help users practice and improve their typing accuracy and speed.Tracks typing progress over time; helps users see improvement and identify weak spots (common mistakes, slow keys etc.).
 
 It is built using React.js on the frontend and Firebase for authentication & database, with Material-UI for styling.
+
 ---
 ## Features
 
@@ -59,3 +60,15 @@ Run the Application
 ```
 
 Open your web browser and visit http://localhost:3000 (or the port shown in your terminal
+
+---
+##  Usage & Testing Guide
+
+Follow these steps to use MasterType:
+- Create an account using your email.
+- If you already have an account, simply sign in.
+- Type and it will calculate metrics like words per minute (WPM), accuracy %, and error count.
+- You can even make your friends join and can compare your growth.
+
+---
+
