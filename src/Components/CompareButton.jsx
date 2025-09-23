@@ -22,17 +22,46 @@ const CompareButton = () => {
     return response.exists;
   };
 
-  const handleSubmit = async () => {
-    if (await checkUsernameAvailability()) {
-      navigate(`/compare/${username}`);
-    } else {
-      setAlert({
-        open: true,
-        type: "warning",
-        message: "invalid username",
-      });
-    }
-  };
+const handleSubmit = async () => {
+  const currentUser = auth.currentUser;
+  if (!currentUser) return;
+
+  // 🔹 get current user's username
+  const querySnapshot = await db
+    .collection("usernames")
+    .where("uid", "==", currentUser.uid)
+    .limit(1)
+    .get();
+
+  let currentUsername = null;
+  if (!querySnapshot.empty) {
+    currentUsername = querySnapshot.docs[0].id; // username = doc id
+  }
+
+  // 🔹 check against entered username
+  if (username === currentUsername) {
+    setAlert({
+      open: true,
+      type: "warning",
+      message: "You cannot compare with your own username",
+    });
+    return;
+  }
+
+  // 🔹 now check if entered username exists
+  const ref = db.collection("usernames");
+  const response = await ref.doc(username).get();
+
+  if (response.exists) {
+    navigate(`/compare/${username}`);
+  } else {
+    setAlert({
+      open: true,
+      type: "warning",
+      message: "invalid username",
+    });
+  }
+};
 
   const handleClick = () => {
     if (auth.currentUser) {

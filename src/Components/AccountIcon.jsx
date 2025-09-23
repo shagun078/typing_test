@@ -151,7 +151,7 @@ const signInWithGoogle = async () => {
                 {value===0 && <LoginForm handleClose={handleClose}/>}
                 {value===1 && <SignupForm handleClose={handleClose}/>}
 
-                <Box
+                {/* <Box
   sx={{
     display: "flex",
     flexDirection: "column",
@@ -178,7 +178,7 @@ const signInWithGoogle = async () => {
     }}
     onClick={signInWithGoogle}
   />
-</Box>
+</Box> */}
 
                 {/* <Box>
                     <span>OR</span>
